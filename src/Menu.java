@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -27,7 +28,8 @@ public class Menu {
                     "____________________________" +
                             "\n--- Opcje:" +
                             "\n--- 1. Uruchom kalkulator." +
-                            "\n--- 2. Zamknij program." +
+                            "\n--- 2. Przegladaj dostepne bazy danych wektorow." +
+                            "\n--- 3. Zamknij program." +
                             "\n____________________________" +
                             "\n--- Wybor:");
             choice=inputStr();
@@ -38,6 +40,9 @@ public class Menu {
                     modes();
                     break;
                 case "2":
+                    searchDatabases();
+                    break;
+                case "3":
                     System.out.println("Trwa zamykanie programu.");
                     try {
                         Thread.sleep(2000);
@@ -64,6 +69,21 @@ public class Menu {
     private void modes(){
 
 
+    }
+    private void searchDatabases(){
+        String exit;
+
+        String database1Path = "3dVecCordREALNUM.xlsx";
+        InjectDatabase database1 = new InjectDatabase(database1Path);
+        List<Vector> vectorsFromDatabase1 = database1.readVectorsFromDatabase();
+        if (vectorsFromDatabase1 != null) {
+            System.out.println("Wektory z bazy danych 1:");
+            for (Vector vector : vectorsFromDatabase1) {
+                System.out.println(vector);
+            }
+        }
+        System.out.println("\nAby wrocic do menu wcisnij dowolna wartosc.");
+        exit=inputStr();
     }
     private String inputStr(){
         Scanner scanner = new Scanner(System.in);
