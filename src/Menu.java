@@ -25,12 +25,12 @@ public class Menu {
         while (true) {
             printLogo();
             System.out.println(
-                    "____________________________" +
+                    "_____________________________________________________________" +
                             "\n--- Opcje:" +
                             "\n--- 1. Uruchom kalkulator." +
                             "\n--- 2. Przegladaj dostepne bazy danych wektorow." +
                             "\n--- 3. Zamknij program." +
-                            "\n____________________________" +
+                            "\n_____________________________________________________________" +
                             "\n--- Wybor:");
             choice=inputStr();
             switch (choice){
@@ -72,7 +72,9 @@ public class Menu {
     }
     private void searchDatabases(){
         String exit;
-
+        ShowAvailableDatabases databases = new ShowAvailableDatabases();
+        databases.showDatabases();
+        /*
         String database1Path = "3dVecCordREALNUM.xlsx";
         InjectDatabase database1 = new InjectDatabase(database1Path);
         List<Vector> vectorsFromDatabase1 = database1.readVectorsFromDatabase();
@@ -82,6 +84,7 @@ public class Menu {
                 System.out.println(vector);
             }
         }
+         */
         System.out.println("\nAby wrocic do menu wcisnij dowolna wartosc.");
         exit=inputStr();
     }
