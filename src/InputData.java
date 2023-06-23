@@ -10,7 +10,7 @@ public class InputData implements DataInterface{
     }
 
     public int getInt(){
-        int var;
+        int var=0;
         boolean validInput = false;
         do {
             System.out.println("-- Podaj liczbe typu calkowitego: \n");
@@ -27,7 +27,7 @@ public class InputData implements DataInterface{
         return var;
     }
     public double getDouble(){
-        double var;
+        double var=0;
         boolean validInput = false;
         do {
             System.out.println("-- Podaj liczbe typu zmiennoprzecinkowego: \n");

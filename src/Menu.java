@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.zip.DataFormatException;
 
 public class Menu{
@@ -54,6 +55,11 @@ public class Menu{
                     }
                     System.exit(0);
                     break;
+                case "4":
+                    String database1Path = "database/3dVecCordREALNUM.xlsx";
+                    InjectDatabase database1 = new InjectDatabase(database1Path);
+                    System.out.println(database1.getVector());
+
                 default:
                     //System.out.print("\033[H\033[2J");
                     //System.out.flush();

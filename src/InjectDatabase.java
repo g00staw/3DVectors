@@ -38,4 +38,31 @@ public class InjectDatabase {
             return null;
         }
     }
+    public List<Vector> getVector(){
+        InputData idOfVector = new InputData();
+        int i = idOfVector.getInt();
+        try (FileInputStream fis = new FileInputStream(excelFilePath);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+            List<Vector> vectors = new ArrayList<>();
+
+            Row row = sheet.getRow(i);
+
+            int id = (int) row.getCell(0).getNumericCellValue();
+            double x = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(1)));
+            double y = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(2)));
+            double z = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(3)));
+
+            Vector vector = new Vector(id, x, y, z);
+            vectors.add(vector);
+
+            return vectors;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
