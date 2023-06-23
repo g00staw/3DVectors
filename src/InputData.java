@@ -13,7 +13,7 @@ public class InputData implements DataInterface{
         int var=0;
         boolean validInput = false;
         do {
-            System.out.println("-- Podaj liczbe typu calkowitego: \n");
+            //System.out.println("-- Podaj liczbe typu calkowitego: \n");
             String inputVar = scanner.nextLine();
             try{
                 var = Integer.parseInt(inputVar);
@@ -30,7 +30,7 @@ public class InputData implements DataInterface{
         double var=0;
         boolean validInput = false;
         do {
-            System.out.println("-- Podaj liczbe typu zmiennoprzecinkowego: \n");
+            //System.out.println("-- Podaj liczbe typu zmiennoprzecinkowego: \n");
             String inputVar = scanner.nextLine();
             try{
                 var = Double.parseDouble(inputVar);

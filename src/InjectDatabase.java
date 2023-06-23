@@ -12,12 +12,12 @@ public class InjectDatabase {
     }
 
     DataFormatter dataFormatter = new DataFormatter();
-    public List<Vector> readVectorsFromDatabase() {
+    public List<Vector3D> readVectorsFromDatabase() {
         try (FileInputStream fis = new FileInputStream(excelFilePath);
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheetAt(0);
-            List<Vector> vectors = new ArrayList<>();
+            List<Vector3D> vector3DS = new ArrayList<>();
 
             for (int i = 0; i <= sheet.getLastRowNum(); i++) {
                 Row row = sheet.getRow(i);
@@ -27,25 +27,25 @@ public class InjectDatabase {
                 double y = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(2)));
                 double z = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(3)));
 
-                Vector vector = new Vector(id, x, y, z);
-                vectors.add(vector);
+                Vector3D vector3D = new Vector3D(id, x, y, z);
+                vector3DS.add(vector3D);
             }
 
-            return vectors;
+            return vector3DS;
 
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
     }
-    public List<Vector> getVector(){
+    public Vector3D getVector(){
         InputData idOfVector = new InputData();
         int i = idOfVector.getInt();
         try (FileInputStream fis = new FileInputStream(excelFilePath);
              Workbook workbook = new XSSFWorkbook(fis)) {
 
             Sheet sheet = workbook.getSheetAt(0);
-            List<Vector> vectors = new ArrayList<>();
+            //List<Vector> vectors = new ArrayList<>();
 
             Row row = sheet.getRow(i);
 
@@ -54,10 +54,10 @@ public class InjectDatabase {
             double y = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(2)));
             double z = Double.parseDouble(dataFormatter.formatCellValue(row.getCell(3)));
 
-            Vector vector = new Vector(id, x, y, z);
-            vectors.add(vector);
+            Vector3D vector3D = new Vector3D(id, x, y, z);
+            //vectors.add(vector);
 
-            return vectors;
+            return vector3D;
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,27 +1,11 @@
-public class Vector {
+public class Vector3D {
     private int id;
     private double x,y,z;
-    public Vector(int id, double x, double y, double z){
+    public Vector3D(int id, double x, double y, double z){
         this.id=id;
         this.x=x;
         this.y=y;
         this.z=z;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public double getZ() {
-        return z;
     }
 
     public void setId(int id) {
@@ -38,6 +22,21 @@ public class Vector {
 
     public void setZ(double z) {
         this.z = z;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getZ() {
+        return z;
     }
 
     public String toString(){
