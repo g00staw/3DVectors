@@ -26,9 +26,9 @@ public class SumOfVectors {
                 result[0][2]+=vector.getZ();
             //selectedVectors.addAll(database1.getVector());
             i++;
-            System.out.println("\n-- Czy chcesz dodac kolejny wektor? \n-- 1. Tak. \n-- 2. Nie. \n-- Wybor: ");
+            System.out.println("\n-- Czy chcesz dodac kolejny wektor? \n1. Tak. \n2. Nie. \n-- Wybor: ");
             next = varInt.getInt();
-            if(next!=1 && next !=2) System.out.println("-- Podana opcja nie jest dostepna. Praca programu trwa dalej.");
+            if(next!=1 && next !=2) System.out.println("Podana opcja nie jest dostepna. Praca programu trwa dalej.");
             selectedVectors.add(vector);
         }
 
@@ -36,7 +36,7 @@ public class SumOfVectors {
         //System.out.println("X: "+result[0][0]+"Y: "+result[0][1]+"Z: "+result[0][2]);
         System.out.println("Suma wektorów: "+selectedVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
-        System.out.println("--- V: "+result1.returnRoundedResult(result));
+        System.out.println("Wektor : "+result1.returnRoundedResult(result));
         return 0;
     }
 

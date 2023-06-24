@@ -32,9 +32,9 @@ public class Menu{
             System.out.println(
                     "_____________________________________________________________" +
                             "\n--- Opcje:" +
-                            "\n--- 1. Uruchom kalkulator." +
-                            "\n--- 2. Przegladaj dostepne bazy danych wektorow." +
-                            "\n--- 3. Zamknij program." +
+                            "\n1. Uruchom kalkulator." +
+                            "\n2. Przegladaj dostepne bazy danych wektorow." +
+                            "\n3. Zamknij program." +
                             "\n_____________________________________________________________" +
                             "\n--- Wybor:");
             choice=inputStr();
@@ -67,7 +67,7 @@ public class Menu{
                 default:
                     //System.out.print("\033[H\033[2J");
                     //System.out.flush();
-                    System.out.println("\t-. Podana opcja nie jest dostępna.");
+                    System.out.println("\tPodana opcja nie jest dostępna.");
                     try {
                         Thread.sleep(3000);
                     }
@@ -81,7 +81,7 @@ public class Menu{
     private void modes(){
         while (true){
             System.out.println("--- Dostepne opcje: \n" +
-                    "--- 1. Suma wektorow.");
+                    "1. Suma wektorow.");
             String choice = inputStr();
             switch (choice){
                 case "1":
@@ -102,9 +102,9 @@ public class Menu{
 
         System.out.println("_____________________________________________________________" +
                 "\n--- Opcje:" +
-                "\n--- 1. Utworz swoja baze danych." +
-                "\n--- 2. Wyswietl zawartosc bazy danych nr 1." +
-                "\n--- 3. Wyswietl zawartosc bazy danych nr 2.");
+                "\n1. Utworz swoja baze danych." +
+                "\n2. Wyswietl zawartosc bazy danych nr 1." +
+                "\n3. Wyswietl zawartosc bazy danych nr 2.");
         if (file.exists()){
             System.out.println("--- 4. Wyswietl zawartosc bazy danych nr 3." +
                     "\n--- 5. Modyfikuj wektory bazy danych uzytkownika (UserDatabase.xlsx).");
