@@ -46,6 +46,12 @@ public class InjectDatabase {
 
             Sheet sheet = workbook.getSheetAt(0);
             //List<Vector> vectors = new ArrayList<>();
+            int lastRow = sheet.getLastRowNum();
+
+            while (i<0 || i > lastRow){
+                System.out.println("Wektor o podanym ID nie istnieje. Prosze podac poprawne ID.");
+                i=idOfVector.getInt();
+            }
 
             Row row = sheet.getRow(i);
 

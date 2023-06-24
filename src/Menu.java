@@ -42,10 +42,12 @@ public class Menu{
                 case "1":
                     //System.out.print("\033[H\033[2J");
                     //System.out.flush();
+
                     modes();
                     break;
                 case "2":
                     searchDatabases();
+                    System.out.println("");
                     break;
                 case "3":
                     System.out.println("Trwa zamykanie programu.");
@@ -78,7 +80,8 @@ public class Menu{
     }
     private void modes(){
         while (true){
-            System.out.println("--1. Suma wektorow.");
+            System.out.println("--- Dostepne opcje: \n" +
+                    "--- 1. Suma wektorow.");
             String choice = inputStr();
             switch (choice){
                 case "1":
@@ -90,20 +93,41 @@ public class Menu{
 
     }
     private void searchDatabases(){
+        InputData data = new InputData();
+        int choice;
         String exit;
         ShowAvailableDatabases databases = new ShowAvailableDatabases();
         databases.showDatabases();
+        File file = new File("database/UserDatabase.xlsx");
+        System.out.println("_____________________________________________________________" +
+                "\n--- Opcje:" +
+                "\n--- 1. Utworz swoja baze danych." +
+                "\n--- 2. Wyswietl zawartosc bazy danych nr 1." +
+                "\n--- 3. Wyswietl zawartosc bazy danych nr 2.");
+        if (file.exists()){
+            System.out.println("--- 4. Wyswietl zawartosc bazy danych nr 3." +
+                    "--- 5. Modyfikuj wektory bazy danych.");
+        }
+        System.out.println("_____________________________________________________________" +
+                "\n--- Wybor: ");
+        choice = data.getInt();
+        if(choice==1){
+            CreateDatabase newDatabase = new CreateDatabase("database/");
+            newDatabase.writeVectorsToExcel();
+        }
 
-        String database1Path = "database/3dVecCordREALNUM.xlsx";
+        String database1Path = "database/3dVecCordINTNUM.xlsx";
+        String database2Path = "database/3dVecCordREALNUM.xlsx";
+        String database3Path = "database/UserDatabase.xlsx";
         InjectDatabase database1 = new InjectDatabase(database1Path);
         List<Vector3D> vectorsFromDatabase1 = database1.readVectorsFromDatabase();
-        if (vectorsFromDatabase1 != null) {
+        /*if (vectorsFromDatabase1 != null) {
             System.out.println("Wektory z bazy danych 1:");
             for (Vector3D vector : vectorsFromDatabase1) {
                 System.out.println(vector);
             }
         }
-
+        */
         System.out.println("\nAby wrocic do menu wcisnij dowolna wartosc.");
         exit=inputStr();
     }
