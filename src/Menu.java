@@ -99,6 +99,7 @@ public class Menu{
         ShowAvailableDatabases databases = new ShowAvailableDatabases();
         databases.showDatabases();
         File file = new File("database/UserDatabase.xlsx");
+
         System.out.println("_____________________________________________________________" +
                 "\n--- Opcje:" +
                 "\n--- 1. Utworz swoja baze danych." +
@@ -106,35 +107,48 @@ public class Menu{
                 "\n--- 3. Wyswietl zawartosc bazy danych nr 2.");
         if (file.exists()){
             System.out.println("--- 4. Wyswietl zawartosc bazy danych nr 3." +
-                    "--- 5. Modyfikuj wektory bazy danych.");
+                    "\n--- 5. Modyfikuj wektory bazy danych uzytkownika (UserDatabase.xlsx).");
         }
         System.out.println("_____________________________________________________________" +
                 "\n--- Wybor: ");
+
         choice = data.getInt();
         if(choice==1){
             CreateDatabase newDatabase = new CreateDatabase("database/");
             newDatabase.writeVectorsToExcel();
-        }
-
-        String database1Path = "database/3dVecCordINTNUM.xlsx";
-        String database2Path = "database/3dVecCordREALNUM.xlsx";
-        String database3Path = "database/UserDatabase.xlsx";
-        InjectDatabase database1 = new InjectDatabase(database1Path);
-        List<Vector3D> vectorsFromDatabase1 = database1.readVectorsFromDatabase();
-        /*if (vectorsFromDatabase1 != null) {
-            System.out.println("Wektory z bazy danych 1:");
-            for (Vector3D vector : vectorsFromDatabase1) {
-                System.out.println(vector);
+        } else if (choice==2) {
+            String database1Path = "database/3dVecCordINTNUM.xlsx";
+            readVectors(database1Path);
+        } else if (choice==3) {
+            String database1Path = "database/3dVecCordREALNUM.xlsx";
+            readVectors(database1Path);
+        } else if (file.exists()) {
+            if(choice==4){
+                String database1Path = "database/UserDatabase.xlsx";
+                readVectors(database1Path);
+            } else if (choice==5) {
+                ModifyDatabase modifyDatabase = new ModifyDatabase("database/UserDatabase.xlsx");
+                modifyDatabase.modifyVectorInDatabase();
             }
         }
-        */
-        System.out.println("\nAby wrocic do menu wcisnij dowolna wartosc.");
+
+        System.out.println("\nAby wrocic do menu wcisnij dowolny przycisk i nacisnij Enter.");
         exit=inputStr();
     }
     private String inputStr(){
         Scanner scanner = new Scanner(System.in);
         String var = scanner.nextLine();
         return var;
+    }
+    private void readVectors(String path){
+        InjectDatabase database = new InjectDatabase(path);
+        List<Vector3D> vectorsFromDatabase = database.readVectorsFromDatabase();
+        if (vectorsFromDatabase != null) {
+            System.out.println("Wektory z bazy danych 1:");
+            for (Vector3D vector : vectorsFromDatabase) {
+                System.out.println(vector);
+            }
+        }
     }
 
 }
