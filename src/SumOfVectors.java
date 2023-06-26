@@ -9,10 +9,10 @@ public class SumOfVectors {
     public SumOfVectors(){
         varInt = new InputData();
     }
-    public double sumOfVectorsFromDatabase(){
+    private double sumOfVectorsFromDatabase(){
         int i=0;
         int next=1;
-        double result[][] = new double[1][3];
+        double[][] result = new double[1][3];
         Vector3D vector;
         String database1Path = "database/3dVecCordREALNUM.xlsx";
         InjectDatabase database1 = new InjectDatabase(database1Path);
@@ -38,6 +38,56 @@ public class SumOfVectors {
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
         return 0;
+    }
+    private double sumOfGivenVectors(){
+        InputData cords = new InputData();
+        int i=0;
+        int next=1;
+        double x,y,z;
+        double[][] result = new double[1][3];
+        Vector3D vector;
+        List<Vector3D> givenVectors = new ArrayList<>();
+        while(next!=2){
+            System.out.print("Podaj współrzędną X: ");
+            x=cords.getDouble();
+            System.out.print("Podaj współrzędną Y: ");
+            y=cords.getDouble();
+            System.out.print("Podaj współrzędną Z: ");
+            z=cords.getDouble();
+            result[0][0]+=x;
+            result[0][1]+=y;
+            result[0][2]+=z;
+            vector = new Vector3D(i, x, y, z);
+            givenVectors.add(vector);
+            System.out.println("\n-- Czy chcesz dodac kolejny wektor? \n1. Tak. \n2. Nie. \n-- Wybor: ");
+            next = varInt.getInt();
+            if(next!=1 && next !=2) System.out.println("Podana opcja nie jest dostepna. Praca programu trwa dalej.");
+            i++;
+        }
+        System.out.println("Suma wektorów: "+givenVectors +" jest równa: ");
+        RoundedResult result1 = new RoundedResult();
+        System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        return 0;
+    }
+    public void menu(){
+        InputData data = new InputData();
+        System.out.println("_____________________________________________________________");
+        System.out.println("--- W jakis sposob chcesz przeprowadzic operacje na wektorach? : " +
+                "\n1. Wybrac konkretne wektory z bazy danych." +
+                "\n2. Utworzyc wlasne.");
+        System.out.println("--- Wybor: ");
+        int choice = data.getInt();
+        switch (choice){
+            case 1:
+                sumOfVectorsFromDatabase();
+                break;
+            case 2:
+                sumOfGivenVectors();
+                break;
+            default:
+                System.out.println("Podana opcja nie jest dostepna.");
+                break;
+        }
     }
 
 }

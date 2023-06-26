@@ -80,13 +80,14 @@ public class Menu{
     }
     private void modes(){
         while (true){
+            System.out.println("_____________________________________________________________");
             System.out.println("--- Dostepne opcje: \n" +
                     "1. Suma wektorow.");
             String choice = inputStr();
             switch (choice){
                 case "1":
                     SumOfVectors sum = new SumOfVectors();
-                    sum.sumOfVectorsFromDatabase();
+                    sum.menu();
                     break;
             }
         }
@@ -106,8 +107,8 @@ public class Menu{
                 "\n2. Wyswietl zawartosc bazy danych nr 1." +
                 "\n3. Wyswietl zawartosc bazy danych nr 2.");
         if (file.exists()){
-            System.out.println("--- 4. Wyswietl zawartosc bazy danych nr 3." +
-                    "\n--- 5. Modyfikuj wektory bazy danych uzytkownika (UserDatabase.xlsx).");
+            System.out.println("4. Wyswietl zawartosc bazy danych nr 3." +
+                    "\n5. Modyfikuj wektory bazy danych uzytkownika (UserDatabase.xlsx).");
         }
         System.out.println("_____________________________________________________________" +
                 "\n--- Wybor: ");
