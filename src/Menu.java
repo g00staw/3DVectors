@@ -84,7 +84,8 @@ public class Menu{
             System.out.println("--- Dostepne opcje: \n" +
                     "1. Suma wektorow." +
                     "\n2. Roznica wektorow." +
-                    "\n3. Iloczyn skalarny wektorow.");
+                    "\n3. Iloczyn skalarny wektorow." +
+                    "\n4. Dlugosc wektora.");
             System.out.println("--- Wybor: ");
             String choice = inputStr();
             switch (choice){
@@ -99,6 +100,10 @@ public class Menu{
                 case "3":
                     ScalarProductOfVectors scalarProductOfVectors = new ScalarProductOfVectors();
                     scalarProductOfVectors.menu();
+                    break;
+                case "4":
+                    LengthOfVector lengthOfVector = new LengthOfVector();
+                    lengthOfVector.menu();
                     break;
             }
         }
