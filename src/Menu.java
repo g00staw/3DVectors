@@ -59,22 +59,10 @@ public class Menu{
                     }
                     System.exit(0);
                     break;
-                case "4":
-                    String database1Path = "database/3dVecCordREALNUM.xlsx";
-                    InjectDatabase database1 = new InjectDatabase(database1Path);
-                    System.out.println(database1.getVector());
 
                 default:
-                    //System.out.print("\033[H\033[2J");
-                    //System.out.flush();
-                    System.out.println("\tPodana opcja nie jest dostępna.");
-                    try {
-                        Thread.sleep(3000);
-                    }
-                    catch (InterruptedException e){
-                        Thread.currentThread().interrupt();
-                    }
-
+                    System.out.println("--- Podana opcja nie jest dostępna.");
+                    break;
             }
         }
     }
@@ -86,7 +74,8 @@ public class Menu{
                     "\n2. Roznica wektorow." +
                     "\n3. Iloczyn skalarny wektorow." +
                     "\n4. Dlugosc wektora." +
-                    "\n5. Mnozenie wektora przez skalar");
+                    "\n5. Mnozenie wektora przez skalar" +
+                    "\n6. Wroc.");
             System.out.println("--- Wybor: ");
             String choice = inputStr();
             switch (choice){
@@ -109,6 +98,12 @@ public class Menu{
                 case "5":
                     MultiplyVectorByScalar multiplyVectorByScalar = new MultiplyVectorByScalar();
                     multiplyVectorByScalar.menu();
+                    break;
+                case "6":
+                    return;
+                default:
+                    System.out.println("Podana opcja nie jest dostepna.");
+                    break;
             }
         }
 
@@ -120,6 +115,7 @@ public class Menu{
         ShowAvailableDatabases databases = new ShowAvailableDatabases();
         databases.showDatabases();
         File file = new File("database/UserDatabase.xlsx");
+        ReadVectors readVectors = new ReadVectors();
 
         System.out.println("_____________________________________________________________" +
                 "\n--- Opcje:" +
@@ -139,14 +135,14 @@ public class Menu{
             newDatabase.writeVectorsToExcel();
         } else if (choice==2) {
             String database1Path = "database/3dVecCordINTNUM.xlsx";
-            readVectors(database1Path);
+            readVectors.read(database1Path);
         } else if (choice==3) {
             String database1Path = "database/3dVecCordREALNUM.xlsx";
-            readVectors(database1Path);
+            readVectors.read(database1Path);
         } else if (file.exists()) {
             if(choice==4){
                 String database1Path = "database/UserDatabase.xlsx";
-                readVectors(database1Path);
+                readVectors.read(database1Path);
             } else if (choice==5) {
                 ModifyDatabase modifyDatabase = new ModifyDatabase("database/UserDatabase.xlsx");
                 modifyDatabase.modifyVectorInDatabase();
@@ -161,15 +157,6 @@ public class Menu{
         String var = scanner.nextLine();
         return var;
     }
-    private void readVectors(String path){
-        InjectDatabase database = new InjectDatabase(path);
-        List<Vector3D> vectorsFromDatabase = database.readVectorsFromDatabase();
-        if (vectorsFromDatabase != null) {
-            System.out.println("Wektory z bazy danych 1:");
-            for (Vector3D vector : vectorsFromDatabase) {
-                System.out.println(vector);
-            }
-        }
-    }
+
 
 }

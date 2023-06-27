@@ -20,6 +20,8 @@ public class SumOfVectors {
         InjectDatabase database1 = new InjectDatabase(database1Path);
         List<Vector3D> selectedVectors = new ArrayList<>();
 
+        ReadVectors readVectors = new ReadVectors();
+        readVectors.read(database1Path);
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz dodac: ");
             vector=database1.getVector();

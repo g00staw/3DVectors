@@ -17,14 +17,15 @@ public class LengthOfVector {
         InjectDatabase database1 = new InjectDatabase(database1Path);
         List<Vector3D> selectedVectors = new ArrayList<>();
 
-            System.out.println("--- Podaj id wektora, ktorego chcesz obliczyc dlugosc: ");
-            vector=database1.getVector();
-            result[0][0]=vector.getX();
-            result[0][1]=vector.getY();
-            result[0][2]=vector.getZ();
-            selectedVectors.add(vector);
+        ReadVectors readVectors = new ReadVectors();
+        readVectors.read(database1Path);
 
-
+        System.out.println("--- Podaj id wektora, ktorego chcesz obliczyc dlugosc: ");
+        vector=database1.getVector();
+        result[0][0]=vector.getX();
+        result[0][1]=vector.getY();
+        result[0][2]=vector.getZ();
+        selectedVectors.add(vector);
 
         double finalLenght = Math.sqrt(Math.pow(result[0][0],2)+Math.pow(result[0][1],2)+Math.pow(result[0][2],2));
         RoundedResult result1 = new RoundedResult();
@@ -50,7 +51,6 @@ public class LengthOfVector {
 
         vector = new Vector3D(i, x, y, z);
         givenVectors.add(vector);
-
 
         double finalLenght = Math.sqrt(Math.pow(x,2)+Math.pow(y,2)+Math.pow(z,2));
         RoundedResult result1 = new RoundedResult();
