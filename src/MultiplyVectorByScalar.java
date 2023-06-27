@@ -21,6 +21,9 @@ public class MultiplyVectorByScalar {
         ReadVectors readVectors = new ReadVectors();
         readVectors.read(database1Path);
 
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
+
         System.out.println("--- Podaj id wektora, ktorego chcesz pomnozyc: ");
         vector = database1.getVector();
         result[0][0] = vector.getX();
@@ -39,6 +42,7 @@ public class MultiplyVectorByScalar {
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor: " + selectedVectors + " pomnozony przez: " + scalar + " jest rowny: ");
         System.out.println("Wynik : " + result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
     }
 
@@ -47,6 +51,9 @@ public class MultiplyVectorByScalar {
         int i = 0;
         double[][] result = new double[1][3];        Vector3D vector;
         List<Vector3D> givenVectors = new ArrayList<>();
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
 
         System.out.print("Podaj współrzędną X: ");
         result[0][0] = cords.getDouble();
@@ -67,6 +74,7 @@ public class MultiplyVectorByScalar {
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor: " + givenVectors + " pomnozony przez: " + scalar + " jest rowny: ");
         System.out.println("Wynik : " + result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
 
     }

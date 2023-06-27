@@ -22,6 +22,10 @@ public class SumOfVectors {
 
         ReadVectors readVectors = new ReadVectors();
         readVectors.read(database1Path);
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
+
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz dodac: ");
             vector=database1.getVector();
@@ -41,6 +45,7 @@ public class SumOfVectors {
         System.out.println("Suma wektorów: "+selectedVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
     }
     private double sumOfGivenVectors(){
@@ -51,6 +56,10 @@ public class SumOfVectors {
         double[][] result = new double[1][3];
         Vector3D vector;
         List<Vector3D> givenVectors = new ArrayList<>();
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
+
         while(next!=2){
             System.out.print("Podaj współrzędną X: ");
             x=cords.getDouble();
@@ -71,6 +80,7 @@ public class SumOfVectors {
         System.out.println("Suma wektorów: "+givenVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
     }
     public void menu(){

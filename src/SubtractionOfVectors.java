@@ -20,6 +20,10 @@ public class SubtractionOfVectors {
 
         ReadVectors readVectors = new ReadVectors();
         readVectors.read(database1Path);
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
+
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz odjac: ");
             vector=database1.getVector();
@@ -47,6 +51,7 @@ public class SubtractionOfVectors {
         System.out.println("Roznica wektorów: "+selectedVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
     }
     private double subtractionOfGivenVectors(){
@@ -57,6 +62,9 @@ public class SubtractionOfVectors {
         double[][] result = new double[1][3];
         Vector3D vector;
         List<Vector3D> givenVectors = new ArrayList<>();
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
 
         while(next!=2){
             System.out.print("Podaj współrzędną X: ");
@@ -89,6 +97,7 @@ public class SubtractionOfVectors {
         System.out.println("Roznica wektorów: "+givenVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
 
     }
