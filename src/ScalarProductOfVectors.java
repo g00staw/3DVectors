@@ -20,6 +20,9 @@ public class ScalarProductOfVectors {
 
         ReadVectors readVectors = new ReadVectors();
         readVectors.read(database1Path);
+
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz pomnozyc: ");
             vector=database1.getVector();
@@ -49,6 +52,7 @@ public class ScalarProductOfVectors {
         System.out.println("Iloczyn sklarany wektorow: "+selectedVectors +" jest rowny: "+result1.returnRoundedOneNumber(result[0][0])+" + "
                 +result1.returnRoundedOneNumber(result[0][1])+" + "+result1.returnRoundedOneNumber(result[0][2]));
         System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalResult));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
     }
     private double scPrdOfGivenVectors(){
@@ -60,6 +64,8 @@ public class ScalarProductOfVectors {
         Vector3D vector;
         List<Vector3D> givenVectors = new ArrayList<>();
 
+        SaveLogs saveLogs = new SaveLogs();
+        saveLogs.saveHistory();
         while(next!=2){
             System.out.print("Podaj współrzędną X: ");
             x=cords.getDouble();
@@ -92,6 +98,7 @@ public class ScalarProductOfVectors {
         System.out.println("Iloczyn sklarany wektorow: "+givenVectors +" jest rowny: "+result[0][0]+" + "+result[0][1]+" + "+result[0][2]);
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalResult));
+        saveLogs.stopRedirectingConsoleOutput();
         return 0;
 
     }
