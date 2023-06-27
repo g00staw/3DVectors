@@ -82,13 +82,18 @@ public class Menu{
         while (true){
             System.out.println("_____________________________________________________________");
             System.out.println("--- Dostepne opcje: \n" +
-                    "1. Suma wektorow.");
+                    "1. Suma wektorow." +
+                    "\n2. Roznica wektorow.");
+            System.out.println("--- Wybor: ");
             String choice = inputStr();
             switch (choice){
                 case "1":
                     SumOfVectors sum = new SumOfVectors();
                     sum.menu();
                     break;
+                case "2":
+                    SubtractionOfVectors subtraction = new SubtractionOfVectors();
+                    subtraction.menu();
             }
         }
 

@@ -18,4 +18,12 @@ public class RoundedResult {
         String finalResult = "X: " + roundedX + " Y: " + roundedY + " Z: " + roundedZ;
         return finalResult;
     }
+    public String returnRoundedOneNumber(double var){
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat decimalFormat = new DecimalFormat("#.##", symbols);
+
+        double roundedX = Double.parseDouble(decimalFormat.format(var));
+        String finalResult = " "+ roundedX;
+        return finalResult;
+    }
 }
