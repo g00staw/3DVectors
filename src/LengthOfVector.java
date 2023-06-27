@@ -11,7 +11,9 @@ public class LengthOfVector {
 
         double[][] result = new double[1][3];
         Vector3D vector;
-        String database1Path = "database/3dVecCordREALNUM.xlsx";
+        SelectDatabase selectDatabase = new SelectDatabase();
+        String database1Path = selectDatabase.select();
+
         InjectDatabase database1 = new InjectDatabase(database1Path);
         List<Vector3D> selectedVectors = new ArrayList<>();
 
