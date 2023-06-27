@@ -85,7 +85,8 @@ public class Menu{
                     "1. Suma wektorow." +
                     "\n2. Roznica wektorow." +
                     "\n3. Iloczyn skalarny wektorow." +
-                    "\n4. Dlugosc wektora.");
+                    "\n4. Dlugosc wektora." +
+                    "\n5. Mnozenie wektora przez skalar");
             System.out.println("--- Wybor: ");
             String choice = inputStr();
             switch (choice){
@@ -105,6 +106,9 @@ public class Menu{
                     LengthOfVector lengthOfVector = new LengthOfVector();
                     lengthOfVector.menu();
                     break;
+                case "5":
+                    MultiplyVectorByScalar multiplyVectorByScalar = new MultiplyVectorByScalar();
+                    multiplyVectorByScalar.menu();
             }
         }
 
