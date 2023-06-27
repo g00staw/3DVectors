@@ -83,7 +83,8 @@ public class Menu{
             System.out.println("_____________________________________________________________");
             System.out.println("--- Dostepne opcje: \n" +
                     "1. Suma wektorow." +
-                    "\n2. Roznica wektorow.");
+                    "\n2. Roznica wektorow." +
+                    "\n3. Iloczyn skalarny wektorow.");
             System.out.println("--- Wybor: ");
             String choice = inputStr();
             switch (choice){
@@ -94,6 +95,11 @@ public class Menu{
                 case "2":
                     SubtractionOfVectors subtraction = new SubtractionOfVectors();
                     subtraction.menu();
+                    break;
+                case "3":
+                    ScalarProductOfVectors scalarProductOfVectors = new ScalarProductOfVectors();
+                    scalarProductOfVectors.menu();
+                    break;
             }
         }
 

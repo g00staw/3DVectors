@@ -40,9 +40,11 @@ public class ScalarProductOfVectors {
 
         //System.out.println(selectedVectors);
         //System.out.println("X: "+result[0][0]+"Y: "+result[0][1]+"Z: "+result[0][2]);
-        System.out.println("Iloczyn sklarany wektorów: "+selectedVectors +" jest równa: ");
+        double finalResult = result[0][0]+result[0][1]+result[0][2];
         RoundedResult result1 = new RoundedResult();
-        System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        System.out.println("Iloczyn sklarany wektorow: "+selectedVectors +" jest rowny: "+result1.returnRoundedOneNumber(result[0][0])+" + "
+                +result1.returnRoundedOneNumber(result[0][1])+" + "+result1.returnRoundedOneNumber(result[0][2]));
+        System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalResult));
         return 0;
     }
     private double scPrdOfGivenVectors(){
@@ -67,24 +69,25 @@ public class ScalarProductOfVectors {
                 result[0][2]=z;
             }
             else{
-                result[0][0]-=x;
-                result[0][1]-=y;
-                result[0][2]-=z;
+                result[0][0]*=x;
+                result[0][1]*=y;
+                result[0][2]*=z;
             }
 
             vector = new Vector3D(i, x, y, z);
             givenVectors.add(vector);
 
-            System.out.println("\n-- Czy chcesz odjac kolejny wektor? \n1. Tak. \n2. Nie. \n-- Wybor: ");
+            System.out.println("\n-- Czy chcesz pomnozyc kolejny wektor? \n1. Tak. \n2. Nie. \n-- Wybor: ");
             next = varInt.getInt();
 
             if(next!=1 && next !=2) System.out.println("Podana opcja nie jest dostepna. Praca programu trwa dalej.");
             i++;
         }
 
-        System.out.println("Suma wektorów: "+givenVectors +" jest równa: ");
+        double finalResult = result[0][0]+result[0][1]+result[0][2];
+        System.out.println("Iloczyn sklarany wektorow: "+givenVectors +" jest rowny: "+result[0][0]+" + "+result[0][1]+" + "+result[0][2]);
         RoundedResult result1 = new RoundedResult();
-        System.out.println("Wektor : "+result1.returnRoundedResult(result));
+        System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalResult));
         return 0;
 
     }
