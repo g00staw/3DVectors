@@ -22,7 +22,6 @@ public class SubtractionOfVectors {
         readVectors.read(database1Path);
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
 
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz odjac: ");
@@ -38,7 +37,6 @@ public class SubtractionOfVectors {
                 result[0][2]-=vector.getZ();
             }
 
-            //selectedVectors.addAll(database1.getVector());
             i++;
             System.out.println("\n-- Czy chcesz odjac kolejny wektor? \n1. Tak. \n2. Nie. \n-- Wybor: ");
             next = varInt.getInt();
@@ -46,8 +44,8 @@ public class SubtractionOfVectors {
             selectedVectors.add(vector);
         }
 
-        //System.out.println(selectedVectors);
-        //System.out.println("X: "+result[0][0]+"Y: "+result[0][1]+"Z: "+result[0][2]);
+
+        saveLogs.saveHistory();
         System.out.println("Roznica wektorów: "+selectedVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
@@ -64,7 +62,7 @@ public class SubtractionOfVectors {
         List<Vector3D> givenVectors = new ArrayList<>();
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
+
 
         while(next!=2){
             System.out.print("Podaj współrzędną X: ");
@@ -94,6 +92,7 @@ public class SubtractionOfVectors {
             i++;
         }
 
+        saveLogs.saveHistory();
         System.out.println("Roznica wektorów: "+givenVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));

@@ -21,7 +21,6 @@ public class LengthOfVector {
         readVectors.read(database1Path);
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
 
         System.out.println("--- Podaj id wektora, ktorego chcesz obliczyc dlugosc: ");
         vector=database1.getVector();
@@ -33,6 +32,7 @@ public class LengthOfVector {
         double finalLenght = Math.sqrt(Math.pow(result[0][0],2)+Math.pow(result[0][1],2)+Math.pow(result[0][2],2));
         RoundedResult result1 = new RoundedResult();
 
+        saveLogs.saveHistory();
         System.out.println("Dlugosc wektora: "+selectedVectors +" wynosi: ");
         System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalLenght));
         saveLogs.stopRedirectingConsoleOutput();
@@ -47,7 +47,6 @@ public class LengthOfVector {
         List<Vector3D> givenVectors = new ArrayList<>();
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
 
         System.out.print("Podaj współrzędną X: ");
         x=cords.getDouble();
@@ -62,6 +61,7 @@ public class LengthOfVector {
         double finalLenght = Math.sqrt(Math.pow(x,2)+Math.pow(y,2)+Math.pow(z,2));
         RoundedResult result1 = new RoundedResult();
 
+        saveLogs.saveHistory();
         System.out.println("Dlugosc wektora: "+ givenVectors +" wynosi: ");
         System.out.println("Wynik : "+result1.returnRoundedOneNumber(finalLenght));
         saveLogs.stopRedirectingConsoleOutput();

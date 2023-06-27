@@ -24,7 +24,6 @@ public class SumOfVectors {
         readVectors.read(database1Path);
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
 
         while(next!=2){
             System.out.println("--- Podaj id wektora, ktorego chcesz dodac: ");
@@ -42,6 +41,7 @@ public class SumOfVectors {
 
         //System.out.println(selectedVectors);
         //System.out.println("X: "+result[0][0]+"Y: "+result[0][1]+"Z: "+result[0][2]);
+        saveLogs.saveHistory();
         System.out.println("Suma wektorów: "+selectedVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
@@ -58,7 +58,6 @@ public class SumOfVectors {
         List<Vector3D> givenVectors = new ArrayList<>();
 
         SaveLogs saveLogs = new SaveLogs();
-        saveLogs.saveHistory();
 
         while(next!=2){
             System.out.print("Podaj współrzędną X: ");
@@ -77,6 +76,8 @@ public class SumOfVectors {
             if(next!=1 && next !=2) System.out.println("Podana opcja nie jest dostepna. Praca programu trwa dalej.");
             i++;
         }
+
+        saveLogs.saveHistory();
         System.out.println("Suma wektorów: "+givenVectors +" jest równa: ");
         RoundedResult result1 = new RoundedResult();
         System.out.println("Wektor : "+result1.returnRoundedResult(result));
